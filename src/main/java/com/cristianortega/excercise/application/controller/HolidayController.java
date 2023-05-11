@@ -27,11 +27,6 @@ public class HolidayController {
         this.holidayService = holidayService;
     }
 
-    @GetMapping("/")
-    public List<Holiday> getHolidays() {
-        return holidayService.getHolidays();
-    }
-
     @ApiOperation(value = "Get Holidays by type, dateFrom and dateTo", response = Holiday.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Holidays found"),
@@ -41,10 +36,10 @@ public class HolidayController {
     public ResponseEntity<List<Holiday>> findByFilters(
             @ApiParam(value = "Type of holiday")
             @RequestParam("type") String type,
-            @ApiParam(value = "Date of the holiday")
-            @RequestParam("dateFrom") Date dateFrom,
-            @ApiParam(value = "Date of the holiday")
-            @RequestParam("dateTo") Date dateTo) {
+            @ApiParam(value = "Date of the holiday: valid format YYYY/MM/DD")
+            @RequestParam("dateFrom") String dateFrom,
+            @ApiParam(value = "Date of the holiday valid format YYYY/MM/DD")
+            @RequestParam("dateTo") String dateTo) {
         return holidayService.findByFilters(type, dateFrom, dateTo)
                 .map(holidays -> new ResponseEntity<>(holidays, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -53,6 +48,11 @@ public class HolidayController {
     @GetMapping("/load-holidays")
     public List<Holiday> loadHolidays() {
         holidayService.loadHolidays();
+        return holidayService.getHolidays();
+    }
+
+    @GetMapping("/")
+    public List<Holiday> getHolidays() {
         return holidayService.getHolidays();
     }
 
