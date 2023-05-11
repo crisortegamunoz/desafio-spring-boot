@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "d238d565-3f52-46d9-aa79-ec9794002abe",
+		"name": "Servicios desafio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9285625"
+	},
+	"item": [
+		{
+			"name": "Cargar feriados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/desafio/api/holidays/load-holidays",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"desafio",
+						"api",
+						"holidays",
+						"load-holidays"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener feriados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/desafio/api/holidays/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"desafio",
+						"api",
+						"holidays",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filtrar feriados JSON",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/desafio/api/holidays/findByFilters?dateTo=2023-04-07",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"desafio",
+						"api",
+						"holidays",
+						"findByFilters"
+					],
+					"query": [
+						{
+							"key": "dateTo",
+							"value": "2023-04-07"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filtrar feriados XML",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/desafio/api/holidays/findByFilters?dateTo=2023-04-07",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"desafio",
+						"api",
+						"holidays",
+						"findByFilters"
+					],
+					"query": [
+						{
+							"key": "dateTo",
+							"value": "2023-04-07"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +33,7 @@ public class HolidayController {
             @ApiResponse(code = 200, message = "Holidays found"),
             @ApiResponse(code = 404, message = "Holidays not found")
     })
-    @GetMapping("/findByFilters")
+    @GetMapping(value = "/findByFilters", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<List<Holiday>> findByFilters(
             @ApiParam(value = "Type of holiday")
             @RequestParam(name = "type", required = false) String type,

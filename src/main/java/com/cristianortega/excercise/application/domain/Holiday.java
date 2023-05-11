@@ -1,5 +1,8 @@
 package com.cristianortega.excercise.application.domain;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Holiday {
 
     private String date;
