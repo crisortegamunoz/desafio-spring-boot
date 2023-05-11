@@ -14,6 +14,15 @@ public class SwaggerConfig {
 
     private static final String packagaValue = "com.cristianortega.excercise.application.controller";
 
+    /**
+     * <h1>api</h1>
+     * <p>
+     * Metodo para configurar el o los package(s) que sera visualizado con swagger html
+     *
+     * @author CristianOrtega
+     * @version 1.0
+     * @since 2023
+     */
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
