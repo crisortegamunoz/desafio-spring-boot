@@ -28,7 +28,30 @@ class ExcerciseApplicationTests {
 
 	@Test
 	void testFindByType() {
+		List<Holiday> holidays = holidayService.findByFilters("Religioso", null, null).get();
+		assertNotNull(holidays);
+		assertEquals(9, holidays.size());
+	}
 
+	@Test
+	void testFindByDateFrom() {
+		List<Holiday> holidays = holidayService.findByFilters(null, "2023-12-08", null).get();
+		assertNotNull(holidays);
+		assertEquals(2, holidays.size());
+	}
+
+	@Test
+	void testFindByDateTo() {
+		List<Holiday> holidays = holidayService.findByFilters(null, "2023-12-08", null).get();
+		assertNotNull(holidays);
+		assertEquals(2, holidays.size());
+	}
+
+	@Test
+	void testFindByDateFromAndDateTo() {
+		List<Holiday> holidays = holidayService.findByFilters(null, null, "2023-04-07").get();
+		assertNotNull(holidays);
+		assertEquals(3, holidays.size());
 	}
 
 }

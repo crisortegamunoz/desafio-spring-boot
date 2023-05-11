@@ -35,11 +35,11 @@ public class HolidayController {
     @GetMapping("/findByFilters")
     public ResponseEntity<List<Holiday>> findByFilters(
             @ApiParam(value = "Type of holiday")
-            @RequestParam("type") String type,
-            @ApiParam(value = "Date of the holiday: valid format YYYY/MM/DD")
-            @RequestParam("dateFrom") String dateFrom,
-            @ApiParam(value = "Date of the holiday valid format YYYY/MM/DD")
-            @RequestParam("dateTo") String dateTo) {
+            @RequestParam(name = "type", required = false) String type,
+            @ApiParam(value = "Date of the holiday: valid format YYYY-MM-DD")
+            @RequestParam(name = "dateFrom", required = false) String dateFrom,
+            @ApiParam(value = "Date of the holiday valid format YYYY-MM-DD")
+            @RequestParam(name = "dateTo", required = false) String dateTo) {
         return holidayService.findByFilters(type, dateFrom, dateTo)
                 .map(holidays -> new ResponseEntity<>(holidays, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
